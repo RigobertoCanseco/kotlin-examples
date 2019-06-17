@@ -1,8 +1,14 @@
-class Greeter{
+open class Greeter{
     private var intVar: Int = 0
     private var stringVar: String = ""
     private var doubleVar: Double = .0
-    private var charVar: Char = ' '
+    private var charVar: Char? = null
+        get() = field
+
+        set(value) {
+            field = value
+        }
+
     private var booleanvar: Boolean = !false
     private var name: String? = null
 
@@ -18,6 +24,7 @@ class Greeter{
         this.name = name
     }
 
+    constructor()
 
 
     infix fun say(msg: String) = println("$name is saying $msg")
@@ -92,5 +99,8 @@ class Greeter{
         return result
     }
 
+    open fun func(){
+
+    }
 
 }

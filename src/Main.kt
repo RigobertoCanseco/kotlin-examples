@@ -1,5 +1,7 @@
+import java.util.*
+
 fun main(args: Array<String> ){
-//    var greter: Greeter = Greeter("Juan");
+    var greter: Greeter = Greeter("Juan");
 //    println(greter.greet("Rigoberto"));
 //    println(greter.getStringVar());
 //
@@ -19,6 +21,20 @@ fun main(args: Array<String> ){
 
     var child: Child = Child()
     child.foo()
+
+    val e1 = Employee("John Doe")
+    val e2 = Employee("John Doe")
+    println(e1)
+    println(e1 == e2)
+
+    executor(::doThis)
+
+    executor(listOf(1..1000).flatten())
+
+    with(child, {
+        date = Date(2019,6, 10);
+    })
+
 }
 
 
@@ -33,7 +49,8 @@ interface B {
         println("B:foo")
     }
 }
-class Child : A, B {
+class Child : A, B, Greeter() {
+    internal var date = Date();
     override fun foo () {
         super<A>.foo();
         super<B>.foo();
@@ -41,12 +58,31 @@ class Child : A, B {
         println("Child:foo")
     }
 
-    constructor(){
-        println("constructor")
-    }
-
     init {
         println("init");
     }
 
+    override fun func() {
+    }
+}
+
+data class Employee(val name:String)
+
+fun doThis() {
+    println ("action")
+}
+
+fun executor(action:() -> Unit) {
+    action()
+}
+
+
+fun executor(numbers:List<Int>) {
+    var sum = 0;
+    numbers.forEach {
+        if ( it % 2 == 0 ) {
+            sum += it
+        }
+    }
+    println("Sum of all even numbers = $sum")
 }
