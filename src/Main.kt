@@ -35,6 +35,52 @@ fun main(args: Array<String> ){
         date = Date(2019,6, 10);
     })
 
+    var arr = emptyArray<Int>();
+    arr += 1
+    arr += 2
+    arr += 3
+    arr += 4
+    arr += 5
+    println(arr.size)
+    println(Arrays.toString(arr))
+
+    var arr2 = arrayOfNulls<Int>(2)
+    println(arr2.size)
+
+    arr2.set(0, 1)
+    arr2.set(1, 2)
+    println(arr2.size)
+
+    arr2.forEach{ i -> print("$i, ")
+
+    }
+
+    val fruits = mutableListOf<String>("Apple")
+    fruits.add("Orange")
+    fruits.add(1, "Banana")
+    fruits.add("Guava")
+
+    val numbers = (1..1000).toMutableSet()
+    numbers.removeIf { i->i%2==0 }
+    numbers.removeIf { i->i%3==0 }
+    numbers.removeIf { i->i%4==0 }
+    numbers.removeIf { i->i%5==0 }
+    numbers.removeIf { i->i%6==0 }
+    numbers.removeIf { i->i%7==0 }
+    numbers.removeIf { i->i%8==0 }
+    numbers.removeIf { i->i%9==0 }
+
+    numbers.forEach { e -> println(e) }
+
+
+    var dict = hashMapOf<String, Int>("foo" to 1)
+    var dict2 = mutableMapOf<String, Int>("foo" to 1)
+    dict["hola"] = 2
+    dict2["hola"] = 2
+    dict.set("world", 3)
+    dict2.set("world", 3)
+
+    println(dict2)
 }
 
 
